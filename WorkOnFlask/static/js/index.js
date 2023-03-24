@@ -53,9 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     };
-    
-    // Rest of the code remains the same (createReportBox, closeReportBox, takeScreenshot)
-    
 
   document.addEventListener("keydown", (e) => {
       if (e.key === "s") {
@@ -93,15 +90,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (x !== null && y !== null) {
-      reportBox.style.left = `${x}px`;
+      reportBox.style.right = `${window.innerWidth - x}px`;
       reportBox.style.top = `${y}px`;
       reportBox.style.transform = "none";
     } else {
-      reportBox.style.left = "";
+      reportBox.style.right = "";
       reportBox.style.top = "50%";
       reportBox.style.transform = "translateY(-50%)";
     }
-    
+  
     reportBox.style.display = "block";
   }
 
@@ -110,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       reportBox.style.display = "none";
       }
   }
+
   function takeScreenshot() {
       const viewportWidth = document.documentElement.clientWidth;
       const viewportHeight = document.documentElement.clientHeight;
